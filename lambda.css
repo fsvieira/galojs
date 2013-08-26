@@ -1,0 +1,26 @@
+.blocks {
+    background-color: yellow;
+    border: solid 1px red;   
+    margin: 3px;
+    padding: 3px; 
+    border-radius: 5px;
+    clear:both; 
+}
+
+#output {
+	float: right;
+	width: 48%;
+	border: 1px solid black;
+	height: 700px;
+	overflow: auto;
+}
+
+#code {
+	width: 50%;
+	height: 700px;
+	overflow: auto;
+	float: left;
+}
+
+
+
