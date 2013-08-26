@@ -20,6 +20,20 @@ JavaScript libs,
 As a test case lambda-calculus had been choosen to be L.
 
 
+Usage
+======
+Afther getting the repo code:
+
+1. The index.html let you try all the code interectivly, everything is acessible by js and is evaluated in real time,
+2. The print function is used to print a string to the rigth console in index.html,
+3. Everything that can be transformed to a string can be printed for example:
+	for (i in Lambda) {
+		print(i);
+	}
+will print the Lambda dictonary keys.
+5. For using the libs check the index.html.
+
+
 Name
 ======
 
