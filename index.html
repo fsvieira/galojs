@@ -11,25 +11,27 @@
     <script src="lib/numbers.js"></script>
     <script src="lib/ast.js"></script>
     <script src="lambda.js"></script>
+    <script src="parser/lambda_parser.js"></script>
+
   </head>
 <body>
 <p >Write Some js code in here! Do it!</p>
 <textarea id='code' >
-function func (a, b) {return !a || b || c}
+function True(x,y) {return x;}
 
-var a = Lambda.Parse(func);
+var lambda_str = parse(True).toLambda();
 
-print("Func: " + a.func);
+print(lambda_str);
 
-var n = new Lambda.Application(new Lambda.Application(new Lambda.Application(a.func, Lambda.Logic.True()), Lambda.Logic.True()), Lambda.Logic.True());
-print("Aplicação: " + n);
+var lambda = Lambda.parse(lambda_str);
 
-// n = n.betaReduction(true);
-n = n.betaReduction({rec: true, verbose: false});
-print("1: " + n);
+print(lambda);
 
-print(JSON.stringify(a.func.variables()));
 
+// s = T.betaReduction({verbose: true, rec: true});
+
+// print(s)
+// print(s.apply([0])); //.betaReduction({}));
 </textarea>
 <div id='output' ></div>
 
