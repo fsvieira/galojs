@@ -25,7 +25,8 @@ lambda =
 
 variable
   = note:note? 
-    id:([a-zA-Z0-9]+)
+    // id:([a-zA-Z0-9]+)
+    id:([^${} \t\n.]+)
   {
     return {
        type: "variable",

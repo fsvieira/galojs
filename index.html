@@ -4,34 +4,85 @@
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
     <link rel="stylesheet" type="text/css" href="lambda.css" media="screen" />
     <script src="lib/jquery-2.0.0.min.js"></script>
+    <script src="lib/ast.js"></script>
     <script src="lib/esprima.js"></script>
     <script src="lib/lambda.js"></script>
-    <script src="lib/logic.js"></script>
-    <script src="lib/collection.js"></script>
-    <script src="lib/numbers.js"></script>
-    <script src="lib/ast.js"></script>
     <script src="lambda.js"></script>
     <script src="parser/lambda_parser.js"></script>
-
   </head>
 <body>
 <p >Write Some js code in here! Do it!</p>
 <textarea id='code' >
-function True(x,y) {return x;}
+/* ============================
+ *  JavaScript Test Function,
+ * ============================
+ */
 
-var lambda_str = parse(True).toLambda();
+function Test(x,y) { // Change this function and see the output update
+  return x;
+}
 
-print(lambda_str);
+/* ============================
+ *  Convert Test JavaScript function to AST representation,
+ * ============================
+ */
+var test_ast = AST.parse(Test);
 
-var lambda = Lambda.parse(lambda_str);
+print("<h3>Print AST Tree</h3>" + JSON.stringify(test_ast)); // Print Test AST tree,
+print("<h3>Print Human readable string</h3>" + test_ast.toString());      // Print Human readable string
 
-print(lambda);
+/* ============================
+ *  Get Lambda String
+ * ============================
+ */
+var test_lambda_str = test_ast.toLambda();
+print ("<h3>Get Lambda String</h3>" + test_lambda_str);
+
+/* ============================
+ *  Parse Lambda String to Lambda Representation,
+ * ============================
+ */
+
+var test_lambda = Lambda.parse(test_lambda_str);
+print("<h3>Parse Lambda String to Lambda Representation,</h3>" + test_lambda);
+
+/* ===========================
+ * Print Lambda Tree,
+ * ============================
+ */
+print("<h3>Print Lambda Tree,</h3>" + JSON.stringify(test_lambda));
 
 
-// s = T.betaReduction({verbose: true, rec: true});
+/* ===========================
+ * Change lambda representation,
+ * ============================
+ */
 
-// print(s)
-// print(s.apply([0])); //.betaReduction({}));
+print("<h3>Lambda.Application,</h3>" + Lambda.Application.toString());
+print("<h3>Lambda.Abstraction,</h3>" + Lambda.Abstraction.toString());
+print("<h3>Lambda.Variable,</h3>" + Lambda.Variable.toString());
+
+var test_lambda_app = new Lambda.Application(
+   new Lambda.Application(test_lambda, new Lambda.Variable ("a")),
+   new Lambda.Variable ("b")
+);
+
+print("<h3>Change lambda representation,</h3>" + test_lambda_app);
+
+/* ===========================
+ * Reduce
+ * ============================
+ */
+
+// var options = {verbose: true, rec: true};
+var options = {};
+var step;
+
+step = test_lambda_app.betaReduction(options);
+print("<h3>Reduce, Step 1)</h3>" + step.toString());
+
+step = test_lambda_app.betaReduction(options);
+print("<h3>Reduce, Step 2)</h3>" +  step.toString());
 </textarea>
 <div id='output' ></div>
 

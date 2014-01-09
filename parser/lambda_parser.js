@@ -53,8 +53,8 @@ lambda = (function() {
            return result;
          },
         peg$c9 = null,
-        peg$c10 = /^[a-zA-Z0-9]/,
-        peg$c11 = { type: "class", value: "[a-zA-Z0-9]", description: "[a-zA-Z0-9]" },
+        peg$c10 = /^[^${} \t\n.]/,
+        peg$c11 = { type: "class", value: "[^${} \\t\\n.]", description: "[^${} \\t\\n.]" },
         peg$c12 = function(note, id) {
             return {
                type: "variable",
