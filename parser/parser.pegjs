@@ -26,7 +26,7 @@ lambda =
 variable
   = note:note? 
     // id:([a-zA-Z0-9]+)
-    id:([^${} \t\n.]+)
+    id:([^()${} \t\n.]+)
   {
     return {
        type: "variable",
@@ -50,4 +50,3 @@ note
   = space* "{" note:[^}]+ "}" space* {return note.join("");}
 
 space = [ \t\n]
-
