@@ -95,6 +95,21 @@ var t = Lambda.parse ("($++.$0.++ (++ 0)) ($n.$f.$x.f (n f x)) ($f.$x.x)");
 print("<h3>Lambda Church Numerals: Succ</h3>" + t);
 print("<h3>Reduction</h3>" +t.clone().betaReduction());
 
+/* ===========================
+ * Variable capture handling 
+ * ============================
+ */
+var t = Lambda.parse ("($x.$y.x) y");
+print ("<h3>Variable Capture Handling with Variable Rename</h3>" + t);
+
+// Alpha Conversion  
+print ("<h3>AlphaConversion x => y, Variable Rename</h3>" + t.clone().alphaConversion ("x", "y"));
+
+// Beta reduction 
+print ("<h3>Beta Reduction, Variable Rename</h3>" + t.clone().betaReduction ());
+
+print("<h3>Variable Classification</h3>" + JSON.stringify(t.variables()));
+
 </textarea>
 <div id='output' ></div>
 
