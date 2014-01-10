@@ -85,6 +85,16 @@ print("<h3>Reduce, Step 1)</h3>" + step.toString());
 step = test_lambda_app.betaReduction(options);
 print("<h3>Reduce, Step 2)</h3>" +  step.toString());
 
+
+/* ===========================
+ * Lambda Curch Numerals: Succ 
+ * ============================
+ */
+var t = Lambda.parse ("($++.$0.++ (++ 0)) ($n.$f.$x.f (n f x)) ($f.$x.x)");
+
+print("<h3>Lambda Curch Numerals: Succ</h3>" + t);
+print("<h3>Reduction</h3>" +t.clone().betaReduction());
+
 </textarea>
 <div id='output' ></div>
 
