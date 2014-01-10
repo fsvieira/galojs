@@ -40,11 +40,12 @@ print ("<h3>Get Lambda String</h3>" + test_lambda_str);
 
 /* ============================
  *  Parse Lambda String to Lambda Representation,
+ *  The {} is used to attach a note to variables and abstractions.
  * ============================
  */
 
 var test_lambda = Lambda.parse(test_lambda_str);
-print("<h3>Parse Lambda String to Lambda Representation,</h3>" + test_lambda);
+print("<h3>Parse Lambda String to Lambda Representation, (The {Note} attachs a note to Abstraction or Variable)</h3>" + test_lambda);
 
 /* ===========================
  * Print Lambda Tree,
@@ -83,6 +84,7 @@ print("<h3>Reduce, Step 1)</h3>" + step.toString());
 
 step = test_lambda_app.betaReduction(options);
 print("<h3>Reduce, Step 2)</h3>" +  step.toString());
+
 </textarea>
 <div id='output' ></div>
 
