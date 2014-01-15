@@ -13,6 +13,49 @@
 <body>
 <p >Write Some js code in here! Do it!</p>
 <textarea id='code' >
+function fac (n) {
+  
+  if (n === 0) {
+    return 1;
+  }
+  else if (n > 0) {
+    return fac (n-1) * n
+  }
+
+}
+
+var fac_l = Lambda.parse(AST.parse (fac).toLambda());
+
+print(fac_l);
+
+var step = Lambda.std_lib(fac_l);	
+print(step);
+print (Lambda.std_lib);	
+
+step = step.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+.betaReduction()
+;
+print(step);
+</textarea>
+
+<!--
+<textarea id='code' >
+	
 /* ============================
  *  JavaScript Test Function,
  * ============================
@@ -109,8 +152,9 @@ print ("<h3>AlphaConversion x => y, Variable Rename</h3>" + t.clone().alphaConve
 print ("<h3>Beta Reduction, Variable Rename</h3>" + t.clone().betaReduction ());
 
 print("<h3>Variable Classification</h3>" + JSON.stringify(t.variables()));
-
 </textarea>
+-->
+
 <div id='output' ></div>
 
 </body>
